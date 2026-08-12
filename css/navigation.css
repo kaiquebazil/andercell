@@ -1,0 +1,32 @@
+/* Regras específicas para a navegação de página única. */
+main > section[id] {
+  scroll-margin-top: 85px;
+}
+
+.nav a.active {
+  color: var(--green);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand img {
+  display: block;
+  width: 168px;
+  height: 51px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+footer .brand img {
+  width: 145px;
+  height: 44px;
+}
+
+@media (max-width: 800px) {
+  main > section[id] {
+    scroll-margin-top: 72px;
+  }
+}
