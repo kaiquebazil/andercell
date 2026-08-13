@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Conteúdo geral do curso: somente alunos autenticados podem ler.
+    match /studentPortal/courseContent { allow read: if request.auth != null; allow write: if false; }
+    // Cada certificado só pode ser lido pelo aluno dono do UID.
+    match /studentCertificates/{userId} { allow read: if request.auth != null && request.auth.uid == userId; allow write: if false; }
+  }
+}

@@ -42,10 +42,6 @@ body:before {
     auto,
     46px 46px;
 }
-.kaique img {
-    width: 15px;
-}
-
 .site-header {
   height: 76px;
   position: fixed;
@@ -1033,11 +1029,10 @@ footer > a:last-child {
 .whatsapp-float:first-letter {
   font-size: 22px;
 }
-.whatsapp-float img {
+.whatsapp-float span {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  width: 20px;
 }
 .reveal {
   opacity: 0;
@@ -1049,6 +1044,9 @@ footer > a:last-child {
 .reveal.visible {
   opacity: 1;
   transform: none;
+}
+.kaique img {
+    width: 15px;
 }
 @media (max-width: 800px) {
   .site-header {
