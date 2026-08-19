@@ -1273,3 +1273,98 @@ footer > a:last-child {
     transform: none;
   }
 }
+
+.maintenance-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100dvh;
+  padding: 24px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #09100b;
+  color: #f7f4eb;
+}
+
+.maintenance-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(190, 255, 70, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 78%, rgba(190, 255, 70, 0.08), transparent 34%),
+    #09100b;
+}
+
+.maintenance-card {
+  width: min(100%, 560px);
+  padding: clamp(32px, 7vw, 64px) clamp(24px, 7vw, 72px);
+  border: 1px solid rgba(190, 255, 70, 0.32);
+  border-radius: 24px;
+  background: #101a12;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  text-align: center;
+}
+
+.maintenance-mark {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: #c4ff46;
+  color: #09100b;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.maintenance-kicker {
+  margin: 0 0 12px;
+  color: #c4ff46;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.maintenance-card h1 {
+  margin: 0;
+  color: #f7f4eb;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(2.6rem, 8vw, 4.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.maintenance-message {
+  max-width: 34rem;
+  margin: 22px auto 0;
+  color: rgba(247, 244, 235, 0.72);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+html:has(.maintenance-overlay),
+body:has(.maintenance-overlay) {
+  overflow: hidden;
+}
+
+body:has(.maintenance-overlay) > *:not(.maintenance-overlay) {
+  visibility: hidden;
+}
+
+@media (max-width: 480px) {
+  .maintenance-card {
+    border-radius: 18px;
+  }
+}
